@@ -210,18 +210,18 @@
                     <groupId>com.spotify</groupId>
                     <artifactId>docker-maven-plugin</artifactId>
                     <version>${docker.maven.plugin.version}</version>
-                    <!--<executions>-->
-                        <!--<execution>-->
-                            <!--<id>build-image</id>-->
-                            <!--<phase>package</phase>-->
-                            <!--<goals>-->
-                                <!--<goal>build</goal>-->
-                            <!--</goals>-->
-                        <!--</execution>-->
-                    <!--</executions>-->
+                    <executions>
+                        <execution>
+                            <id>build-image</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>build</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                     <configuration>
                         <imageName>mall/${project.artifactId}:${project.version}</imageName>
-                        <dockerHost>${docker.host}</dockerHost>
+                        <dockerHost>http://127.0.0.1:5000</dockerHost>
                         <baseImage>java:8</baseImage>
                         <entryPoint>["java", "-jar", "-Dspring.profiles.active=prod","/${project.build.finalName}.jar"]
                         </entryPoint>
