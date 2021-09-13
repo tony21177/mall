@@ -221,7 +221,7 @@
                     </executions>
                     <configuration>
                         <imageName>mall/${project.artifactId}:${project.version}</imageName>
-                        <dockerHost>http://127.0.0.1:5000</dockerHost>
+                        <dockerHost>tcp://127.0.0.1:5000</dockerHost>
                         <baseImage>java:8</baseImage>
                         <entryPoint>["java", "-jar", "-Dspring.profiles.active=prod","/${project.build.finalName}.jar"]
                         </entryPoint>
