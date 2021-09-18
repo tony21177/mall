@@ -9,7 +9,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class MallAdminApplication {
+    private static ApplicationContext applicationContext;
+    private PasswordEncoder passwordEncoder;
     public static void main(String[] args) {
-        SpringApplication.run(MallAdminApplication.class, args);
+        applicationContext = SpringApplication.run(MallAdminApplication.class, args);
+        passwordEncoder = (PasswordEncoder)applicationContext.getBean("passwordEncoder");
+        System.out.println("Admin: hash pass:"+passwordEncoder.encode("admin"));
     }
 }
