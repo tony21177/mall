@@ -12,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @SpringBootApplication
 public class MallAdminApplication {
     private static ApplicationContext applicationContext;
-    private PasswordEncoder passwordEncoder;
+    private static PasswordEncoder passwordEncoder;
     public static void main(String[] args) {
         applicationContext = SpringApplication.run(MallAdminApplication.class, args);
         passwordEncoder = (PasswordEncoder)applicationContext.getBean("passwordEncoder");
